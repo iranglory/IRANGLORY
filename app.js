@@ -2,16 +2,19 @@
 
 // ---- PAGE NAVIGATION ----
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const target = document.getElementById('page-' + id);
-  if (target) {
-    target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  if (id === 'dashboard') {
-    initDashboard();
-  }
-}
+  ddocument.querySelectorAll('button, .buy-btn, .hero-cta').forEach(btn => {
+  btn.addEventListener('click', function () {
+    this.classList.add('vibrate');
+
+    if (navigator.vibrate) {
+      navigator.vibrate(80);
+    }
+
+    setTimeout(() => {
+      this.classList.remove('vibrate');
+    }, 250);
+  });
+});
 
 // ---- MOBILE MENU ----
 function toggleMenu() {
