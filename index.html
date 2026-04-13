@@ -1,302 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iran Glory – Premium Persian Craftsmanship</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Iran Glory – Premium Persian Craftsmanship</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --gold:#c9a227;--gold-l:#f5d76e;--gold-d:#8a6a10;
+  --em:#1a6b3c;--em-l:#2ecc71;--em-d:#0d3d22;
+  --cr:#b52030;--cr-l:#e84057;--cr-d:#6e0f1a;
+  --ro:#d4557a;--ro-l:#f07fa0;--ro-d:#8a2a48;
+  --bg:#060a0e;--card:rgba(10,15,8,0.88);
+  --text:#f4ede0;--textm:#c8b99a;--textd:#7a6a50;
+  --bdr:rgba(201,162,39,0.22);
+  --gg:rgba(201,162,39,0.3);--ge:rgba(26,107,60,0.3);--gc:rgba(181,32,48,0.3);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cormorant Garamond',serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+[dir="rtl"] body,[dir="rtl"] .d-title,[dir="rtl"] .prod-name,[dir="rtl"] .sec-title,[dir="rtl"] .feat-card h3,[dir="rtl"] .d-panel,[dir="rtl"] .sb-link,[dir="rtl"] nav{font-family:'Vazirmatn',sans-serif!important;}
+[dir="rtl"] .logo{letter-spacing:1px!important;}
+
+/* RAINBOW BORDER */
+.rb-top{position:fixed;top:0;left:0;right:0;height:4px;z-index:400;background:linear-gradient(90deg,var(--cr),var(--gold),var(--em),var(--ro),var(--gold),var(--cr));background-size:300% 100%;animation:rbf 4s linear infinite;}
+.rb-bot{position:fixed;bottom:0;left:0;right:0;height:3px;z-index:400;background:linear-gradient(90deg,var(--em),var(--ro),var(--gold),var(--cr),var(--gold),var(--em));background-size:300% 100%;animation:rbf 4s linear infinite reverse;}
+@keyframes rbf{0%{background-position:0 0;}100%{background-position:300% 0;}}
+
+/* ORBS */
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;}
+.o1{width:550px;height:550px;background:var(--em);opacity:.09;top:-150px;left:-150px;animation:of1 22s ease-in-out infinite;}
+.o2{width:450px;height:450px;background:var(--cr);opacity:.09;bottom:-120px;right:-120px;animation:of2 28s ease-in-out infinite;}
+.o3{width:380px;height:380px;background:var(--gold);opacity:.07;top:40%;left:45%;transform:translate(-50%,-50%);animation:of3 20s ease-in-out infinite;}
+.o4{width:320px;height:320px;background:var(--ro);opacity:.07;bottom:25%;left:8%;animation:of1 24s ease-in-out infinite reverse;}
+@keyframes of1{0%,100%{transform:translate(0,0);}50%{transform:translate(70px,50px);}}
+@keyframes of2{0%,100%{transform:translate(0,0);}50%{transform:translate(-60px,40px);}}
+@keyframes of3{0%,100%{transform:translate(-50%,-50%) scale(1);}50%{transform:translate(-50%,-50%) scale(1.35);}}
+
+/* PATTERN OVERLAYS */
+.pat1{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cdefs%3E%3Cpattern id='a' width='120' height='120' patternUnits='userSpaceOnUse'%3E%3Cpolygon points='60,4 72,52 116,52 80,80 96,116 60,90 24,116 40,80 4,52 48,52' fill='none' stroke='%23c9a227' stroke-width='0.7'/%3E%3Ccircle cx='60' cy='60' r='22' fill='none' stroke='%23c9a227' stroke-width='0.4'/%3E%3Ccircle cx='60' cy='60' r='10' fill='none' stroke='%23b52030' stroke-width='0.4'/%3E%3Cpath d='M60,4 L60,116 M4,60 L116,60 M18,18 L102,102 M102,18 L18,102' stroke='%231a6b3c' stroke-width='0.25' opacity='0.6'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='120' height='120' fill='url(%23a)'/%3E%3C/svg%3E");}
+.pat2{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cdefs%3E%3Cpattern id='b' width='80' height='80' patternUnits='userSpaceOnUse'%3E%3Cpath d='M40,6 Q56,22 74,40 Q56,58 40,74 Q24,58 6,40 Q24,22 40,6Z' fill='none' stroke='%23d4557a' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='7' fill='none' stroke='%23c9a227' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='80' height='80' fill='url(%23b)'/%3E%3C/svg%3E");
+  animation:pshift 25s linear infinite;}
+@keyframes pshift{0%{background-position:0 0;}100%{background-position:80px 80px;}}
+
+/* CANVAS */
+#cv{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* PARTICLES */
+.pts{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.pt{position:absolute;border-radius:50%;opacity:0;animation:fup 12s infinite ease-in-out;}
+@keyframes fup{0%{opacity:0;transform:translateY(100vh) scale(0) rotate(0deg);}10%{opacity:.55;}88%{opacity:.25;}100%{opacity:0;transform:translateY(-8vh) scale(1.1) rotate(340deg);}}
+
+/* ══════════ NAVBAR ══════════ */
+nav{position:sticky;top:4px;z-index:200;background:rgba(4,8,4,0.93);backdrop-filter:blur(22px);border-bottom:1px solid var(--bdr);}
+.ni{max-width:1240px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Cinzel Decorative',serif;font-size:17px;font-weight:900;background:linear-gradient(135deg,var(--cr-l),var(--gold),var(--em-l),var(--ro-l));background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s ease infinite;letter-spacing:4px;cursor:pointer;}
+@keyframes shimmer{0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;}}
+.nl{display:flex;align-items:center;gap:1.4rem;}
+.nl a{color:var(--textm);text-decoration:none;font-size:14px;letter-spacing:1px;transition:color .25s;cursor:pointer;font-style:italic;}
+.nl a:hover{color:var(--gold);}
+.lbtn{display:flex;align-items:center;gap:6px;background:rgba(201,162,39,.08);border:1px solid var(--bdr);border-radius:30px;padding:7px 16px;cursor:pointer;transition:all .3s;}
+.lbtn:hover{background:rgba(201,162,39,.18);border-color:var(--gold);}
+.lbtn span{font-size:13px;color:var(--gold);font-weight:600;}
+.dbtn{background:linear-gradient(135deg,var(--em-d),var(--em))!important;border:1px solid var(--em-l)!important;color:#fff!important;padding:8px 20px!important;border-radius:30px;font-style:normal!important;letter-spacing:1.5px;box-shadow:0 0 22px var(--ge);transition:all .3s!important;}
+.dbtn:hover{transform:scale(1.05)!important;box-shadow:0 0 38px var(--ge)!important;}
+
+/* VIBRATE */
+.vib:active{animation:vib .32s ease!important;}
+@keyframes vib{0%{transform:translate(0,0);}10%{transform:translate(-3px,-1px) rotate(-1.5deg);}20%{transform:translate(3px,1px) rotate(1.5deg);}30%{transform:translate(-3px,1px) rotate(0);}40%{transform:translate(3px,-1px) rotate(1.5deg);}50%{transform:translate(-2px,2px) rotate(-1deg);}60%{transform:translate(2px,-1px) rotate(0);}70%{transform:translate(-2px,1px) rotate(-1deg);}80%{transform:translate(2px,1px) rotate(1deg);}90%{transform:translate(-1px,0);}100%{transform:translate(0,0);}}
+
+/* PAGES */
+.pg{display:none;position:relative;z-index:2;}
+.pg.active{display:block;}
+
+/* ══════════ HERO ══════════ */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden;}
+.orn{font-size:22px;letter-spacing:20px;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fd .8s .3s forwards;}
+.h1{font-family:'Cinzel Decorative',serif;font-size:clamp(34px,9vw,96px);font-weight:900;line-height:1;background:linear-gradient(135deg,var(--cr-l) 0%,var(--gold) 30%,var(--gold-l) 55%,var(--em-l) 75%,var(--ro-l) 100%);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s ease infinite,fd .8s .5s both;letter-spacing:8px;margin-bottom:1.2rem;}
+.htag{font-size:clamp(14px,2.5vw,22px);color:var(--textm);font-weight:300;letter-spacing:4px;font-style:italic;opacity:0;animation:fd .8s .7s forwards;}
+.hsub{font-size:13px;color:var(--textd);letter-spacing:3px;margin:.4rem 0 3.5rem;opacity:0;animation:fd .8s .9s forwards;}
+.hcta{display:inline-block;background:linear-gradient(135deg,var(--cr-d),var(--cr),var(--cr-l));color:#fff;text-decoration:none;padding:17px 50px;border-radius:50px;font-size:15px;font-weight:600;letter-spacing:3px;text-transform:uppercase;box-shadow:0 0 45px var(--gc);transition:all .3s;opacity:0;animation:fd .8s 1.1s forwards;border:1px solid rgba(232,64,87,.4);}
+.hcta:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 12px 60px var(--gc);}
+@keyframes fd{from{opacity:0;transform:translateY(-18px);}to{opacity:1;transform:translateY(0);}}
+.mandala{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(750px,88vw);height:min(750px,88vw);opacity:.04;animation:rot 90s linear infinite;pointer-events:none;}
+@keyframes rot{from{transform:translate(-50%,-50%) rotate(0);}to{transform:translate(-50%,-50%) rotate(360deg);}}
+.scrl{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--textd);font-size:10px;letter-spacing:3px;animation:bnc 2.2s ease-in-out infinite;}
+@keyframes bnc{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+
+/* ══════════ SECTION ══════════ */
+.sec{max-width:1200px;margin:0 auto;padding:5rem 2rem;}
+.slbl{font-size:11px;letter-spacing:5px;color:var(--ro);text-transform:uppercase;margin-bottom:.7rem;text-align:center;}
+.stit{font-family:'Cinzel Decorative',serif;font-size:clamp(20px,4vw,38px);color:var(--gold-l);text-align:center;margin-bottom:3.5rem;font-weight:700;}
+
+/* ══════════ PRODUCT ══════════ */
+.pw{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center;max-width:1020px;margin:0 auto;}
+.pif{position:relative;background:linear-gradient(135deg,rgba(26,107,60,.12),rgba(181,32,48,.1),rgba(201,162,39,.08));border:1px solid var(--bdr);border-radius:20px;overflow:hidden;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;box-shadow:0 0 70px rgba(201,162,39,.1),inset 0 0 80px rgba(0,0,0,.35);}
+.pif::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(26,107,60,.18),transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(181,32,48,.18),transparent 55%);}
+.corn{position:absolute;width:56px;height:56px;border-color:var(--gold);border-style:solid;opacity:.55;}
+.corn.tl{top:12px;left:12px;border-width:2px 0 0 2px;}
+.corn.tr{top:12px;right:12px;border-width:2px 2px 0 0;}
+.corn.bl{bottom:12px;left:12px;border-width:0 0 2px 2px;}
+.corn.br{bottom:12px;right:12px;border-width:0 2px 2px 0;}
+.pimg{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;transition:transform .5s;}
+.pif:hover .pimg{transform:scale(1.05);}
+.pph{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.8rem;opacity:.55;text-align:center;padding:1rem;}
+.pph-ic{font-size:80px;filter:drop-shadow(0 0 25px var(--gold));}
+.pph p{font-size:12px;color:var(--textd);letter-spacing:2px;}
+.phi{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(201,162,39,.12);border:1px dashed var(--gold);border-radius:8px;padding:7px 15px;font-size:10px;color:var(--gold);letter-spacing:1px;white-space:nowrap;z-index:2;}
+.pbadge{display:inline-block;background:linear-gradient(135deg,var(--cr-d),var(--cr));color:#fff;font-size:10px;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:3px;text-transform:uppercase;margin-bottom:1.2rem;box-shadow:0 0 20px var(--gc);}
+.pname{font-family:'Cinzel Decorative',serif;font-size:clamp(18px,2.8vw,28px);color:var(--text);margin-bottom:.8rem;line-height:1.35;font-weight:700;}
+.pdiv{width:80px;height:2px;margin-bottom:1.4rem;background:linear-gradient(90deg,var(--gold),var(--ro),transparent);}
+.pdesc{font-size:clamp(14px,1.7vw,17px);color:var(--textm);line-height:1.95;margin-bottom:1.4rem;font-weight:300;}
+.pfl{list-style:none;margin-bottom:1.8rem;}
+.pfl li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid rgba(201,162,39,.08);font-size:14px;color:var(--textm);}
+.pfl li .star{color:var(--gold);font-size:15px;flex-shrink:0;}
+.pp{font-family:'Cinzel Decorative',serif;font-size:44px;font-weight:900;background:linear-gradient(135deg,var(--gold-d),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:2rem;}
+.pp small{font-size:20px;}
+.bbtn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--em-d),var(--em),var(--em-l));color:#fff;text-decoration:none;padding:18px 46px;border-radius:50px;font-size:16px;font-weight:600;letter-spacing:2px;box-shadow:0 0 45px var(--ge);transition:all .3s;border:1px solid rgba(46,204,113,.4);cursor:pointer;}
+.bbtn:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 12px 60px var(--ge);}
+.bnote{font-size:11px;color:var(--textd);margin-top:.7rem;letter-spacing:1px;}
+
+/* ══════════ FEATURES ══════════ */
+.fb{background:linear-gradient(180deg,rgba(26,107,60,.03),rgba(201,162,39,.04),rgba(181,32,48,.03));border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:5rem 2rem;}
+.fg{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.fc{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:2rem 1.25rem;text-align:center;transition:all .4s;position:relative;overflow:hidden;backdrop-filter:blur(12px);}
+.fc::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s;background:radial-gradient(ellipse at center,var(--gg),transparent 70%);}
+.fc:hover{transform:translateY(-7px);border-color:var(--gold);}
+.fc:hover::before{opacity:.5;}
+.fic{font-size:40px;margin-bottom:1rem;display:block;}
+.fc h3{font-family:'Cinzel Decorative',serif;font-size:12px;color:var(--gold);margin-bottom:.65rem;letter-spacing:1px;}
+.fc p{font-size:13px;color:var(--textd);line-height:1.75;}
+
+/* ══════════ ABOUT ══════════ */
+.astat{font-family:'Cinzel Decorative',serif;font-size:38px;font-weight:700;}
+
+/* ══════════ FOOTER ══════════ */
+footer{background:rgba(3,5,3,.98);border-top:1px solid var(--bdr);padding:4rem 2rem 5rem;text-align:center;position:relative;z-index:2;}
+.flogo{font-family:'Cinzel Decorative',serif;font-size:20px;font-weight:900;background:linear-gradient(135deg,var(--cr-l),var(--gold),var(--em-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.8rem;letter-spacing:5px;}
+footer p{font-size:13px;color:var(--textd);margin:.35rem 0;}
+.flinks{display:flex;justify-content:center;gap:2rem;margin-top:1.5rem;}
+.flinks a{color:var(--gold);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:1px;transition:opacity .2s;}
+.flinks a:hover{opacity:.6;}
+
+/* ══════════ DASHBOARD ══════════ */
+.dl{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 72px);position:relative;z-index:2;}
+.sb{background:rgba(3,7,3,.97);border-right:1px solid var(--bdr);padding:2rem 1rem;position:sticky;top:72px;height:calc(100vh - 72px);overflow-y:auto;display:flex;flex-direction:column;gap:4px;}
+.sbl{font-family:'Cinzel Decorative',serif;font-size:14px;color:var(--gold);text-align:center;padding-bottom:1.5rem;border-bottom:1px solid var(--bdr);margin-bottom:1.5rem;letter-spacing:4px;}
+.sbln{display:flex;align-items:center;gap:10px;color:var(--textd);text-decoration:none;font-size:13px;font-weight:500;padding:11px 14px;border-radius:10px;transition:all .22s;cursor:pointer;letter-spacing:1px;}
+.sbln:hover,.sbln.active{background:rgba(201,162,39,.1);color:var(--gold);border-left:3px solid var(--gold);}
+.sbk{margin-top:auto;background:none;border:1px solid var(--bdr);color:var(--textd);padding:10px 14px;border-radius:10px;cursor:pointer;font-size:13px;transition:all .2s;font-family:inherit;}
+.sbk:hover{border-color:var(--gold);color:var(--gold);}
+.dm{background:rgba(5,9,5,.96);padding:2.5rem;}
+.dp{display:none;}.dp.active{display:block;}
+.dh{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;}
+.dt{font-family:'Cinzel Decorative',serif;font-size:20px;color:var(--gold);letter-spacing:2px;}
+.dd{font-size:13px;color:var(--textd);}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.sc{border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;}
+.sc::after{content:'';position:absolute;top:-25px;right:-25px;width:90px;height:90px;border-radius:50%;opacity:.15;}
+.sc.g{background:linear-gradient(135deg,#1c1000,#3a2800);border:1px solid var(--gold);}.sc.g::after{background:var(--gold);}
+.sc.e{background:linear-gradient(135deg,#001c0a,#003018);border:1px solid var(--em);}.sc.e::after{background:var(--em);}
+.sc.r{background:linear-gradient(135deg,#1c0008,#300012);border:1px solid var(--cr);}.sc.r::after{background:var(--cr);}
+.sc.p{background:linear-gradient(135deg,#1c0012,#300022);border:1px solid var(--ro);}.sc.p::after{background:var(--ro);}
+.scl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--textd);margin-bottom:8px;}
+.scv{font-family:'Cinzel Decorative',serif;font-size:28px;font-weight:700;}
+.sc.g .scv{color:var(--gold-l);}.sc.e .scv{color:var(--em-l);}.sc.r .scv{color:var(--cr-l);}.sc.p .scv{color:var(--ro-l);}
+.scc{font-size:12px;margin-top:6px;}.up{color:#40e090;}.dn{color:#ff6060;}
+.d2g{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;margin-bottom:2rem;}
+.dc{background:rgba(7,11,7,.92);border:1px solid var(--bdr);border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;}
+.dc:last-child{margin-bottom:0;}
+.dct{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:1.2rem;letter-spacing:2px;}
+.tbl{width:100%;border-collapse:collapse;font-size:13px;}
+.tbl th{text-align:left;color:var(--textd);padding:7px 10px;border-bottom:1px solid var(--bdr);font-size:10px;text-transform:uppercase;letter-spacing:2px;}
+.tbl td{padding:10px;border-bottom:1px solid rgba(201,162,39,.05);color:var(--textm);}
+.tbl tr:hover td{background:rgba(201,162,39,.035);}
+.pi{padding:3px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px;}
+.paid{background:#002a12;color:#40e090;}.pend{background:#2a1400;color:#e0a020;}.ship{background:#001028;color:#4090f0;}
+.al{list-style:none;}
+.al li{padding:10px 0;border-bottom:1px solid rgba(201,162,39,.05);display:flex;align-items:center;gap:10px;font-size:13px;color:var(--textm);}
+.al li:last-child{border-bottom:none;}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dg{background:var(--gold);}.de{background:var(--em-l);}.db{background:#4090f0;}.dr{background:var(--ro);}
+.bc{display:flex;align-items:flex-end;gap:10px;height:140px;}
+.bw{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:flex-end;}
+.bb{width:100%;border-radius:6px 6px 0 0;min-height:6px;transition:height .6s;}
+.bl{font-size:10px;color:var(--textd);}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.cc{background:rgba(7,11,7,.92);border:1px solid var(--bdr);border-radius:14px;padding:1.5rem;text-align:center;transition:border-color .2s;}
+.cc:hover{border-color:var(--gold);}
+.av{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;margin:0 auto .75rem;}
+.cn{font-weight:600;font-size:15px;color:var(--text);margin-bottom:4px;}
+.ci{font-size:12px;color:var(--textd);}
+.sg2{margin-bottom:1.2rem;}
+.sg2 label{display:block;font-size:10px;font-weight:600;color:var(--textd);margin-bottom:6px;text-transform:uppercase;letter-spacing:2px;}
+.sin{width:100%;background:#040804;border:1px solid var(--bdr);border-radius:8px;padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;transition:border-color .2s;}
+.sin:focus{outline:none;border-color:var(--gold);}
+.svb{background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));color:#1a0a00;border:none;padding:13px 30px;border-radius:25px;font-size:14px;font-weight:800;cursor:pointer;transition:transform .2s;font-family:inherit;letter-spacing:1px;}
+.svb:hover{transform:scale(1.04);}
+
+/* RESPONSIVE */
+@media(max-width:1000px){.nl .hm{display:none;}.pw{grid-template-columns:1fr;}.fg{grid-template-columns:1fr 1fr;}.sg{grid-template-columns:1fr 1fr;}.d2g{grid-template-columns:1fr;}.cg{grid-template-columns:1fr 1fr;}.dl{grid-template-columns:1fr;}.sb{position:relative;top:0;height:auto;flex-direction:row;flex-wrap:wrap;padding:.75rem;}.sbl{display:none;}.sbk{margin-top:0;}}
+@media(max-width:600px){.fg{grid-template-columns:1fr;}.sg{grid-template-columns:1fr;}.cg{grid-template-columns:1fr;}.h1{letter-spacing:2px!important;}}
+</style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <div class="logo">✦ IRAN GLORY</div>
-      <div class="nav-links">
-        <a href="#" onclick="showPage('home')">Home</a>
-        <a href="#shop" onclick="showPage('home')">Shop</a>
-        <a href="#about" onclick="showPage('home')">About</a>
-        <a href="#" onclick="showPage('dashboard')" class="nav-dash-btn">⚡ Dashboard</a>
+<!-- BG LAYERS -->
+<div class="pat1"></div><div class="pat2"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div>
+<canvas id="cv"></canvas>
+<div class="pts" id="pts"></div>
+<div class="rb-top"></div><div class="rb-bot"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="ni">
+    <div class="logo" onclick="showPage('home')" data-en="✦ IRAN GLORY" data-fa="✦ جلال ایران">✦ IRAN GLORY</div>
+    <div class="nl">
+      <a onclick="showPage('home')" data-en="Home" data-fa="خانه" class="hm">Home</a>
+      <a onclick="scrollToId('shop')" data-en="Shop" data-fa="فروشگاه" class="hm">Shop</a>
+      <a onclick="scrollToId('about')" data-en="About" data-fa="درباره ما" class="hm">About</a>
+      <div class="lbtn vib" onclick="toggleLang()">
+        <span id="lflag">🇮🇷</span><span id="llbl">فارسی</span>
       </div>
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#" onclick="showPage('home'); toggleMenu()">Home</a>
-      <a href="#shop" onclick="showPage('home'); toggleMenu()">Shop</a>
-      <a href="#about" onclick="showPage('home'); toggleMenu()">About</a>
-      <a href="#" onclick="showPage('dashboard'); toggleMenu()">Dashboard</a>
-    </div>
-  </nav>
-
-  <!-- ===== HOME PAGE ===== -->
-  <div id="page-home" class="page active">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-ornament">☽ ✦ ☾</div>
-      <h1 class="hero-title">IRAN GLORY</h1>
-      <p class="hero-sub">Premium Persian Craftsmanship — Delivered Worldwide</p>
-      <a href="#shop" class="hero-cta">Explore Our Collection ↓</a>
-      <div class="hero-bg-circles">
-        <span class="circle c1"></span>
-        <span class="circle c2"></span>
-        <span class="circle c3"></span>
-      </div>
-    </section>
-
-    <!-- PRODUCT SECTION -->
-    <section class="section" id="shop">
-      <h2 class="section-title">✦ Featured Product</h2>
-      <div class="product-card">
-        <div class="product-img">
-          <span class="product-emoji">🏺</span>
-          <div class="product-glow"></div>
-        </div>
-        <div class="product-info">
-          <div class="product-badge">LIMITED EDITION</div>
-          <h2 class="product-name">Persian Royal Vase</h2>
-          <p class="product-desc">
-            Handcrafted with centuries-old Persian artistry. Each piece is unique,
-            painted by master artisans using traditional pigments and motifs passed
-            down through generations from ancient Persia. A timeless treasure for
-            your home.
-          </p>
-          <ul class="product-features">
-            <li>✦ 100% handmade in Iran</li>
-            <li>✦ Certified authentic Persian art</li>
-            <li>✦ Ships worldwide in protective packaging</li>
-          </ul>
-          <div class="product-price">$149.00</div>
-          <!-- BUY BUTTON — replace YOUR_TELEGRAM with your actual Telegram username -->
-          <a
-            href="https://t.me/YOUR_TELEGRAM"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="buy-btn"
-          >
-            🛒 Buy Now via Telegram
-          </a>
-          <p class="buy-note">Clicking opens Telegram to complete your order securely.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="features-section">
-      <div class="section">
-        <h2 class="section-title">Why Iran Glory?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">🎨</div>
-            <h3>Handmade Artistry</h3>
-            <p>Every product is handcrafted by skilled artisans preserving ancient Persian traditions.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🚚</div>
-            <h3>Worldwide Shipping</h3>
-            <p>We ship globally. Your order is carefully packed and tracked from Iran to your door.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💎</div>
-            <h3>Premium Quality</h3>
-            <p>Only the finest materials sourced from Iran's most renowned artisan regions.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Secure Ordering</h3>
-            <p>All orders processed personally through Telegram for a safe, direct experience.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about-section" id="about">
-      <div class="section about-inner">
-        <div class="about-text">
-          <h2 class="section-title" style="text-align:left;">About Iran Glory</h2>
-          <p>
-            Iran Glory was founded with a single mission: to bring the breathtaking
-            beauty of Persian craftsmanship to the world. For thousands of years,
-            Iranian artisans have created objects of extraordinary beauty — and we
-            are here to make that legacy accessible to everyone.
-          </p>
-          <p>
-            Every item we sell is sourced directly from verified artisans,
-            ensuring authenticity and fair compensation for their incredible work.
-          </p>
-        </div>
-        <div class="about-ornament">
-          <span class="big-ornament">🌙</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="footer-logo">✦ IRAN GLORY</div>
-      <p>Premium Persian Craftsmanship · Delivered Worldwide</p>
-      <p>© 2026 Iran Glory · All Rights Reserved</p>
-      <div class="footer-links">
-        <a href="https://t.me/YOUR_TELEGRAM" target="_blank">Telegram</a>
-        <a href="https://github.com/YOUR_GITHUB" target="_blank">GitHub</a>
-      </div>
-    </footer>
-  </div>
-
-  <!-- ===== DASHBOARD PAGE ===== -->
-  <div id="page-dashboard" class="page">
-    <div class="dash-layout">
-
-      <!-- SIDEBAR -->
-      <aside class="sidebar">
-        <div class="sidebar-logo">✦ IG</div>
-        <nav class="sidebar-nav">
-          <a href="#" class="sidebar-link active" onclick="showDash('overview')">📊 Overview</a>
-          <a href="#" class="sidebar-link" onclick="showDash('orders')">📦 Orders</a>
-          <a href="#" class="sidebar-link" onclick="showDash('customers')">👥 Customers</a>
-          <a href="#" class="sidebar-link" onclick="showDash('settings')">⚙️ Settings</a>
-        </nav>
-        <button class="sidebar-back" onclick="showPage('home')">← Back to Store</button>
-      </aside>
-
-      <!-- MAIN CONTENT -->
-      <main class="dash-main">
-
-        <!-- OVERVIEW PANEL -->
-        <div id="dash-overview" class="dash-panel active">
-          <div class="dash-header">
-            <h1 class="dash-title">Dashboard Overview</h1>
-            <span class="dash-date" id="dashDate"></span>
-          </div>
-
-          <!-- STAT CARDS -->
-          <div class="stats-grid">
-            <div class="stat-card gold">
-              <div class="stat-label">Total Revenue</div>
-              <div class="stat-value">$3,840</div>
-              <div class="stat-change up">↑ +18% this month</div>
-            </div>
-            <div class="stat-card purple">
-              <div class="stat-label">Total Orders</div>
-              <div class="stat-value">26</div>
-              <div class="stat-change up">↑ +4 this week</div>
-            </div>
-            <div class="stat-card teal">
-              <div class="stat-label">Customers</div>
-              <div class="stat-value">21</div>
-              <div class="stat-change up">↑ +3 new</div>
-            </div>
-            <div class="stat-card rose">
-              <div class="stat-label">Pending Orders</div>
-              <div class="stat-value">3</div>
-              <div class="stat-change down">↓ 2 awaiting payment</div>
-            </div>
-          </div>
-
-          <!-- CHART + ACTIVITY -->
-          <div class="dash-grid-2">
-            <div class="dash-card">
-              <div class="dash-card-title">Monthly Sales (Units)</div>
-              <div class="bar-chart" id="barChart">
-                <!-- bars injected by JS -->
-              </div>
-            </div>
-            <div class="dash-card">
-              <div class="dash-card-title">Recent Activity</div>
-              <ul class="activity-list">
-                <li><span class="dot dot-gold"></span>New order #026 from Sara M.</li>
-                <li><span class="dot dot-green"></span>Payment confirmed #025</li>
-                <li><span class="dot dot-blue"></span>Order #025 shipped via DHL</li>
-                <li><span class="dot dot-rose"></span>New message from Mike R.</li>
-                <li><span class="dot dot-gold"></span>New order #024 from Leila A.</li>
-                <li><span class="dot dot-green"></span>Payment confirmed #024</li>
-                <li><span class="dot dot-blue"></span>Order #023 shipped via FedEx</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- ORDERS PANEL -->
-        <div id="dash-orders" class="dash-panel">
-          <div class="dash-header">
-            <h1 class="dash-title">Orders</h1>
-            <span class="dash-badge">26 total</span>
-          </div>
-          <div class="dash-card" style="overflow-x:auto;">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Order ID</th>
-                  <th>Customer</th>
-                  <th>Product</th>
-                  <th>Amount</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>#026</td><td>Sara M.</td><td>Persian Vase</td><td>$149</td><td>Apr 09</td><td><span class="pill paid">Paid</span></td></tr>
-                <tr><td>#025</td><td>John K.</td><td>Persian Vase</td><td>$149</td><td>Apr 07</td><td><span class="pill shipped">Shipped</span></td></tr>
-                <tr><td>#024</td><td>Leila A.</td><td>Persian Vase</td><td>$149</td><td>Apr 05</td><td><span class="pill paid">Paid</span></td></tr>
-                <tr><td>#023</td><td>Mike R.</td><td>Persian Vase</td><td>$149</td><td>Apr 03</td><td><span class="pill pending">Pending</span></td></tr>
-                <tr><td>#022</td><td>Fatemeh N.</td><td>Persian Vase</td><td>$149</td><td>Apr 01</td><td><span class="pill paid">Paid</span></td></tr>
-                <tr><td>#021</td><td>Ahmad S.</td><td>Persian Vase</td><td>$149</td><td>Mar 30</td><td><span class="pill shipped">Shipped</span></td></tr>
-                <tr><td>#020</td><td>Claire B.</td><td>Persian Vase</td><td>$149</td><td>Mar 28</td><td><span class="pill paid">Paid</span></td></tr>
-                <tr><td>#019</td><td>Reza P.</td><td>Persian Vase</td><td>$149</td><td>Mar 25</td><td><span class="pill pending">Pending</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- CUSTOMERS PANEL -->
-        <div id="dash-customers" class="dash-panel">
-          <div class="dash-header">
-            <h1 class="dash-title">Customers</h1>
-            <span class="dash-badge">21 total</span>
-          </div>
-          <div class="customers-grid">
-            <div class="customer-card"><div class="avatar" style="background:#5c1a9e;">SM</div><div class="cust-name">Sara M.</div><div class="cust-info">2 orders · $298</div></div>
-            <div class="customer-card"><div class="avatar" style="background:#1a5c3e;">JK</div><div class="cust-name">John K.</div><div class="cust-info">1 order · $149</div></div>
-            <div class="customer-card"><div class="avatar" style="background:#9e1a40;">LA</div><div class="cust-name">Leila A.</div><div class="cust-info">2 orders · $298</div></div>
-            <div class="customer-card"><div class="avatar" style="background:#9e5c1a;">MR</div><div class="cust-name">Mike R.</div><div class="cust-info">1 order · $149</div></div>
-            <div class="customer-card"><div class="avatar" style="background:#1a3a9e;">FN</div><div class="cust-name">Fatemeh N.</div><div class="cust-info">3 orders · $447</div></div>
-            <div class="customer-card"><div class="avatar" style="background:#4a1a9e;">AS</div><div class="cust-name">Ahmad S.</div><div class="cust-info">1 order · $149</div></div>
-          </div>
-        </div>
-
-        <!-- SETTINGS PANEL -->
-        <div id="dash-settings" class="dash-panel">
-          <div class="dash-header">
-            <h1 class="dash-title">Settings</h1>
-          </div>
-          <div class="dash-card" style="max-width:500px;">
-            <div class="dash-card-title">Store Configuration</div>
-            <div class="settings-group">
-              <label>Store Name</label>
-              <input type="text" value="Iran Glory" class="settings-input" />
-            </div>
-            <div class="settings-group">
-              <label>Telegram Username</label>
-              <input type="text" value="@YOUR_TELEGRAM" class="settings-input" />
-            </div>
-            <div class="settings-group">
-              <label>Product Price ($)</label>
-              <input type="number" value="149" class="settings-input" />
-            </div>
-            <div class="settings-group">
-              <label>Product Name</label>
-              <input type="text" value="Persian Royal Vase" class="settings-input" />
-            </div>
-            <button class="save-btn">Save Changes</button>
-          </div>
-        </div>
-
-      </main>
+      <a onclick="showPage('dashboard')" class="dbtn vib" data-en="⚡ Dashboard" data-fa="⚡ داشبورد">⚡ Dashboard</a>
     </div>
   </div>
+</nav>
 
-  <script src="app.js"></script>
+<!-- ════ HOME ════ -->
+<div id="page-home" class="pg active">
+
+  <section class="hero">
+    <!-- rotating mandala -->
+    <svg class="mandala" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#c9a227">
+        <circle cx="250" cy="250" r="240" stroke-width=".4"/><circle cx="250" cy="250" r="195" stroke-width=".4"/><circle cx="250" cy="250" r="150" stroke-width=".4"/><circle cx="250" cy="250" r="105" stroke-width=".4"/><circle cx="250" cy="250" r="60" stroke-width=".4"/>
+        <polygon points="250,10 490,490 10,490" stroke-width=".35"/><polygon points="250,490 10,10 490,10" stroke-width=".35"/>
+        <line x1="250" y1="10" x2="250" y2="490" stroke-width=".25"/><line x1="10" y1="250" x2="490" y2="250" stroke-width=".25"/><line x1="10" y1="10" x2="490" y2="490" stroke-width=".25"/><line x1="490" y1="10" x2="10" y2="490" stroke-width=".25"/>
+        <path d="M250,50 Q340,150 450,250 Q340,350 250,450 Q160,350 50,250 Q160,150 250,50Z" stroke-width=".4" stroke="#b52030"/>
+        <path d="M250,90 Q320,170 410,250 Q320,330 250,410 Q180,330 90,250 Q180,170 250,90Z" stroke-width=".3" stroke="#1a6b3c"/>
+        <path d="M250,130 Q300,190 370,250 Q300,310 250,370 Q200,310 130,250 Q200,190 250,130Z" stroke-width=".3" stroke="#d4557a"/>
+      </g>
+    </svg>
+
+    <div class="orn">✦ ✦ ✦</div>
+    <h1 class="h1">IRAN GLORY</h1>
+    <p class="htag" data-en="Premium Persian Craftsmanship" data-fa="صنایع دستی برتر ایرانی">Premium Persian Craftsmanship</p>
+    <p class="hsub" data-en="Delivered Worldwide · Handmade with Legacy" data-fa="تحویل جهانی · دست‌ساز با میراث">Delivered Worldwide · Handmade with Legacy</p>
+    <a href="#shop" class="hcta vib" data-en="Explore Collection ↓" data-fa="مشاهده مجموعه ↓">Explore Collection ↓</a>
+
+    <div class="scrl">
+      <svg width="18" height="28" viewBox="0 0 18 28" fill="none" stroke="rgba(201,162,39,0.5)" stroke-width="1.2">
+        <rect x="1" y="1" width="16" height="26" rx="8"/>
+        <circle cx="9" cy="8" r="2.5" fill="rgba(201,162,39,0.7)"/>
+      </svg>
+      <span data-en="SCROLL" data-fa="اسکرول">SCROLL</span>
+    </div>
+  </section>
+
+  <!-- PRODUCT -->
+  <section class="sec" id="shop">
+    <p class="slbl" data-en="Our Signature Piece" data-fa="محصول ویژه ما">Our Signature Piece</p>
+    <h2 class="stit" data-en="✦ Featured Product" data-fa="✦ محصول برگزیده">✦ Featured Product</h2>
+    <div class="pw">
+
+      <div class="pif" id="prodFrame">
+        <div class="corn tl"></div><div class="corn tr"></div><div class="corn bl"></div><div class="corn br"></div>
+        <!--
+          ═══════════════════════════════════════════
+          TO ADD YOUR PRODUCT PHOTO:
+          Replace EVERYTHING between the two comment
+          lines below with this single line:
+          <img src="YOUR-PHOTO-FILENAME.jpg" alt="Persian Royal Vase" class="pimg">
+
+          Example:
+          <img src="vase.jpg" alt="Persian Royal Vase" class="pimg">
+
+          Put your photo file in the same folder as index.html
+          ═══════════════════════════════════════════
+        -->
+        <div class="pph">
+          <span class="pph-ic">🏺</span>
+          <p data-en="Your product photo goes here" data-fa="عکس محصول شما اینجاست">Your product photo goes here</p>
+        </div>
+        <div class="phi" data-en="📷 Replace placeholder with your &lt;img&gt; tag" data-fa="📷 با تگ عکس محصول جایگزین کنید">📷 Replace placeholder with your &lt;img&gt; tag</div>
+      </div>
+
+      <div>
+        <div class="pbadge" data-en="LIMITED EDITION" data-fa="نسخه محدود">LIMITED EDITION</div>
+        <h2 class="pname" data-en="Persian Royal Vase" data-fa="گلدان سلطنتی ایرانی">Persian Royal Vase</h2>
+        <div class="pdiv"></div>
+        <p class="pdesc" data-en="Handcrafted by master artisans in Isfahan, this vase carries centuries of Persian artistic tradition. Each piece is unique — painted with mineral pigments using techniques passed down through 12 generations. A living testament to Iran's glorious artistic heritage, infused with the soul of ancient Persia." data-fa="این گلدان توسط استادکاران ماهر در اصفهان ساخته شده و حامل سنت‌های هنری چند صد ساله ایران است. هر قطعه منحصربه‌فرد است — با رنگدانه‌های معدنی و تکنیک‌هایی که در طی ۱۲ نسل از صنعتگران به ارث رسیده، نقاشی شده است. شاهدی زنده از میراث هنری باشکوه ایران.">
+          Handcrafted by master artisans in Isfahan, this vase carries centuries of Persian artistic tradition. Each piece is unique — painted with mineral pigments using techniques passed down through 12 generations. A living testament to Iran's glorious artistic heritage, infused with the soul of ancient Persia.
+        </p>
+        <ul class="pfl">
+          <li><span class="star">✦</span><span data-en="100% handmade in Isfahan, Iran" data-fa="۱۰۰٪ دست‌ساز در اصفهان، ایران">100% handmade in Isfahan, Iran</span></li>
+          <li><span class="star">✦</span><span data-en="Certified authentic Persian artisan work" data-fa="تأییدیه صنعتگر اصیل ایرانی">Certified authentic Persian artisan work</span></li>
+          <li><span class="star">✦</span><span data-en="Height 35cm · Traditional mineral pigments" data-fa="ارتفاع ۳۵ سانتی‌متر · رنگدانه‌های معدنی سنتی">Height 35cm · Traditional mineral pigments</span></li>
+          <li><span class="star">✦</span><span data-en="Worldwide shipping in luxury gift packaging" data-fa="ارسال جهانی با بسته‌بندی هدیه لوکس">Worldwide shipping in luxury gift packaging</span></li>
+        </ul>
+        <div class="pp"><small>$</small>149<small>.00</small></div>
+        <a href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener" class="bbtn vib">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.17l-1.97 9.29c-.14.65-.52.8-1.05.5l-2.9-2.14-1.4 1.35c-.15.15-.28.28-.58.28l.2-2.97 5.3-4.78c.23-.2-.05-.32-.36-.12L7.3 14.4l-2.85-.9c-.62-.2-.63-.62.13-.91l11.15-4.3c.51-.19.96.13.83.88z"/></svg>
+          <span data-en="Buy via Telegram" data-fa="خرید از طریق تلگرام">Buy via Telegram</span>
+        </a>
+        <p class="bnote" data-en="Tap to open Telegram · Place your order securely and directly" data-fa="برای ثبت سفارش ایمن تلگرام را باز کنید">Tap to open Telegram · Place your order securely and directly</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="fb">
+    <div style="max-width:1100px;margin:0 auto;">
+      <p class="slbl" data-en="Why Choose Us" data-fa="چرا ما">Why Choose Us</p>
+      <h2 class="stit" data-en="The Iran Glory Promise" data-fa="وعده جلال ایران">The Iran Glory Promise</h2>
+      <div class="fg">
+        <div class="fc"><span class="fic">🎨</span><h3 data-en="Handmade Artistry" data-fa="هنر دست‌ساز">Handmade Artistry</h3><p data-en="Certified Persian master artisans preserving thousand-year traditions." data-fa="استادکاران ایرانی معتبر که سنت‌های هزارساله را حفظ می‌کنند.">Certified Persian master artisans preserving thousand-year traditions.</p></div>
+        <div class="fc"><span class="fic">🚚</span><h3 data-en="Worldwide Shipping" data-fa="ارسال جهانی">Worldwide Shipping</h3><p data-en="Luxury gift boxes delivered to your door anywhere on the planet." data-fa="جعبه‌های هدیه لوکس تحویل درب منزل در هر جای کره زمین.">Luxury gift boxes delivered to your door anywhere on the planet.</p></div>
+        <div class="fc"><span class="fic">💎</span><h3 data-en="Premium Quality" data-fa="کیفیت برتر">Premium Quality</h3><p data-en="Mineral pigments, high-grade clay, centuries-old glazing formulas." data-fa="رنگدانه‌های معدنی، خاک رس با کیفیت بالا، فرمول‌های لعاب قرن‌ها قدیمی.">Mineral pigments, high-grade clay, centuries-old glazing formulas.</p></div>
+        <div class="fc"><span class="fic">🔒</span><h3 data-en="Secure &amp; Personal" data-fa="امن و شخصی">Secure &amp; Personal</h3><p data-en="Every order handled personally via Telegram. Transparent and direct." data-fa="هر سفارش به صورت شخصی از طریق تلگرام. شفاف و مستقیم.">Every order handled personally via Telegram. Transparent and direct.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <p class="slbl" data-en="Our Story" data-fa="داستان ما">Our Story</p>
+    <h2 class="stit" data-en="About Iran Glory" data-fa="درباره جلال ایران">About Iran Glory</h2>
+    <div style="max-width:720px;margin:0 auto;text-align:center;">
+      <p style="font-size:18px;color:var(--textm);line-height:2;font-weight:300;font-style:italic;margin-bottom:1.5rem;" data-en="Iran Glory was founded with a single mission: to bring the breathtaking beauty of Persian craftsmanship to the world." data-fa="جلال ایران با یک مأموریت تأسیس شد: آوردن زیبایی خیره‌کننده صنایع دستی ایرانی به جهان.">
+        Iran Glory was founded with a single mission: to bring the breathtaking beauty of Persian craftsmanship to the world.
+      </p>
+      <p style="font-size:15px;color:var(--textd);line-height:1.9;margin-bottom:3rem;" data-en="For thousands of years, Iranian artisans have created objects of extraordinary beauty. Every item we sell is sourced directly from verified artisans, ensuring authenticity and fair compensation for their incredible work." data-fa="برای هزاران سال، هنرمندان ایرانی اشیاء زیبایی فوق‌العاده‌ای خلق کرده‌اند. هر محصولی که می‌فروشیم مستقیماً از صنعتگران تأیید شده تهیه می‌شود.">
+        For thousands of years, Iranian artisans have created objects of extraordinary beauty. Every item we sell is sourced directly from verified artisans, ensuring authenticity and fair compensation for their incredible work.
+      </p>
+      <div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;">
+        <div style="text-align:center;"><div class="astat" style="color:var(--gold);">500+</div><div style="font-size:11px;color:var(--textd);letter-spacing:3px;" data-en="Happy Customers" data-fa="مشتریان راضی">Happy Customers</div></div>
+        <div style="text-align:center;"><div class="astat" style="color:var(--cr-l);">40+</div><div style="font-size:11px;color:var(--textd);letter-spacing:3px;" data-en="Countries" data-fa="کشور">Countries</div></div>
+        <div style="text-align:center;"><div class="astat" style="color:var(--em-l);">12</div><div style="font-size:11px;color:var(--textd);letter-spacing:3px;" data-en="Artisan Generations" data-fa="نسل صنعتگر">Artisan Generations</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="flogo">✦ IRAN GLORY</div>
+    <p data-en="Premium Persian Craftsmanship · Delivered Worldwide" data-fa="صنایع دستی برتر ایرانی · تحویل جهانی">Premium Persian Craftsmanship · Delivered Worldwide</p>
+    <p>© 2026 Iran Glory · All Rights Reserved</p>
+    <div class="flinks">
+      <a href="https://t.me/YOUR_TELEGRAM" target="_blank">Telegram</a>
+      <a href="https://github.com/YOUR_GITHUB" target="_blank">GitHub</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════ DASHBOARD ════ -->
+<div id="page-dashboard" class="pg">
+  <div class="dl">
+    <aside class="sb">
+      <div class="sbl">✦ IG</div>
+      <nav style="display:flex;flex-direction:column;gap:4px;flex:1;">
+        <a class="sbln active" onclick="showDash('ov',this)" data-en="📊 Overview" data-fa="📊 نمای کلی">📊 Overview</a>
+        <a class="sbln" onclick="showDash('ord',this)" data-en="📦 Orders" data-fa="📦 سفارشات">📦 Orders</a>
+        <a class="sbln" onclick="showDash('cus',this)" data-en="👥 Customers" data-fa="👥 مشتریان">👥 Customers</a>
+        <a class="sbln" onclick="showDash('set',this)" data-en="⚙️ Settings" data-fa="⚙️ تنظیمات">⚙️ Settings</a>
+      </nav>
+      <button class="sbk vib" onclick="showPage('home')" data-en="← Back to Store" data-fa="← بازگشت به فروشگاه">← Back to Store</button>
+    </aside>
+    <main class="dm">
+
+      <!-- OVERVIEW -->
+      <div class="dp active" id="dash-ov">
+        <div class="dh"><h1 class="dt" data-en="Dashboard Overview" data-fa="نمای کلی داشبورد">Dashboard Overview</h1><span class="dd" id="ddate"></span></div>
+        <div class="sg">
+          <div class="sc g"><div class="scl" data-en="Total Revenue" data-fa="کل درآمد">Total Revenue</div><div class="scv">$3,840</div><div class="scc up">↑ +18% this month</div></div>
+          <div class="sc e"><div class="scl" data-en="Total Orders" data-fa="کل سفارشات">Total Orders</div><div class="scv">26</div><div class="scc up">↑ +4 this week</div></div>
+          <div class="sc r"><div class="scl" data-en="Customers" data-fa="مشتریان">Customers</div><div class="scv">21</div><div class="scc up">↑ +3 new</div></div>
+          <div class="sc p"><div class="scl" data-en="Pending" data-fa="در انتظار">Pending</div><div class="scv">3</div><div class="scc dn">↓ 2 awaiting</div></div>
+        </div>
+        <div class="d2g">
+          <div class="dc"><div class="dct" data-en="Monthly Sales (units)" data-fa="فروش ماهانه (واحد)">Monthly Sales (units)</div><div class="bc" id="barChart"></div></div>
+          <div class="dc"><div class="dct" data-en="Recent Activity" data-fa="فعالیت اخیر">Recent Activity</div>
+            <ul class="al">
+              <li><span class="dot dg"></span><span data-en="New order #026 — Sara M." data-fa="سفارش جدید #026 — سارا م.">New order #026 — Sara M.</span></li>
+              <li><span class="dot de"></span><span data-en="Payment confirmed #025" data-fa="پرداخت تأیید #025">Payment confirmed #025</span></li>
+              <li><span class="dot db"></span><span data-en="Order #025 shipped via DHL" data-fa="سفارش #025 ارسال شد — DHL">Order #025 shipped via DHL</span></li>
+              <li><span class="dot dr"></span><span data-en="New message from Mike R." data-fa="پیام جدید از مایک ر.">New message from Mike R.</span></li>
+              <li><span class="dot dg"></span><span data-en="New order #024 — Leila A." data-fa="سفارش جدید #024 — لیلا الف.">New order #024 — Leila A.</span></li>
+              <li><span class="dot de"></span><span data-en="Payment confirmed #024" data-fa="پرداخت تأیید #024">Payment confirmed #024</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDERS -->
+      <div class="dp" id="dash-ord">
+        <div class="dh"><h1 class="dt" data-en="Orders" data-fa="سفارشات">Orders</h1><span class="dd" data-en="26 total" data-fa="۲۶ سفارش">26 total</span></div>
+        <div class="dc" style="overflow-x:auto;">
+          <table class="tbl">
+            <thead><tr><th data-en="ID" data-fa="شناسه">ID</th><th data-en="Customer" data-fa="مشتری">Customer</th><th data-en="Product" data-fa="محصول">Product</th><th data-en="Amount" data-fa="مبلغ">Amount</th><th data-en="Date" data-fa="تاریخ">Date</th><th data-en="Status" data-fa="وضعیت">Status</th></tr></thead>
+            <tbody>
+              <tr><td>#026</td><td>Sara M.</td><td>Persian Vase</td><td>$149</td><td>Apr 09</td><td><span class="pi paid" data-en="Paid" data-fa="پرداخت شد">Paid</span></td></tr>
+              <tr><td>#025</td><td>John K.</td><td>Persian Vase</td><td>$149</td><td>Apr 07</td><td><span class="pi ship" data-en="Shipped" data-fa="ارسال شد">Shipped</span></td></tr>
+              <tr><td>#024</td><td>Leila A.</td><td>Persian Vase</td><td>$149</td><td>Apr 05</td><td><span class="pi paid" data-en="Paid" data-fa="پرداخت شد">Paid</span></td></tr>
+              <tr><td>#023</td><td>Mike R.</td><td>Persian Vase</td><td>$149</td><td>Apr 03</td><td><span class="pi pend" data-en="Pending" data-fa="در انتظار">Pending</span></td></tr>
+              <tr><td>#022</td><td>Fatemeh N.</td><td>Persian Vase</td><td>$149</td><td>Apr 01</td><td><span class="pi paid" data-en="Paid" data-fa="پرداخت شد">Paid</span></td></tr>
+              <tr><td>#021</td><td>Ahmad S.</td><td>Persian Vase</td><td>$149</td><td>Mar 30</td><td><span class="pi ship" data-en="Shipped" data-fa="ارسال شد">Shipped</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CUSTOMERS -->
+      <div class="dp" id="dash-cus">
+        <div class="dh"><h1 class="dt" data-en="Customers" data-fa="مشتریان">Customers</h1></div>
+        <div class="cg">
+          <div class="cc"><div class="av" style="background:#5c1a9e;">SM</div><div class="cn">Sara M.</div><div class="ci" data-en="2 orders · $298" data-fa="۲ سفارش · ۲۹۸$">2 orders · $298</div></div>
+          <div class="cc"><div class="av" style="background:#1a5c3e;">JK</div><div class="cn">John K.</div><div class="ci" data-en="1 order · $149" data-fa="۱ سفارش · ۱۴۹$">1 order · $149</div></div>
+          <div class="cc"><div class="av" style="background:#9e1a40;">LA</div><div class="cn">Leila A.</div><div class="ci" data-en="2 orders · $298" data-fa="۲ سفارش · ۲۹۸$">2 orders · $298</div></div>
+          <div class="cc"><div class="av" style="background:#9e5c1a;">MR</div><div class="cn">Mike R.</div><div class="ci" data-en="1 order · $149" data-fa="۱ سفارش · ۱۴۹$">1 order · $149</div></div>
+          <div class="cc"><div class="av" style="background:#1a3a9e;">FN</div><div class="cn">Fatemeh N.</div><div class="ci" data-en="3 orders · $447" data-fa="۳ سفارش · ۴۴۷$">3 orders · $447</div></div>
+          <div class="cc"><div class="av" style="background:#4a1a9e;">AS</div><div class="cn">Ahmad S.</div><div class="ci" data-en="1 order · $149" data-fa="۱ سفارش · ۱۴۹$">1 order · $149</div></div>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="dp" id="dash-set">
+        <div class="dh"><h1 class="dt" data-en="Settings" data-fa="تنظیمات">Settings</h1></div>
+        <div class="dc" style="max-width:480px;">
+          <div class="dct" data-en="Store Configuration" data-fa="پیکربندی فروشگاه">Store Configuration</div>
+          <div class="sg2"><label data-en="Store Name" data-fa="نام فروشگاه">Store Name</label><input class="sin" type="text" value="Iran Glory"/></div>
+          <div class="sg2"><label data-en="Telegram Username" data-fa="نام کاربری تلگرام">Telegram Username</label><input class="sin" type="text" value="@YOUR_TELEGRAM"/></div>
+          <div class="sg2"><label data-en="Product Name" data-fa="نام محصول">Product Name</label><input class="sin" type="text" value="Persian Royal Vase"/></div>
+          <div class="sg2"><label data-en="Product Price ($)" data-fa="قیمت ($)">Product Price ($)</label><input class="sin" type="number" value="149"/></div>
+          <button class="svb vib" id="svbtn" data-en="Save Changes" data-fa="ذخیره تغییرات">Save Changes</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script>
+/* ── CANVAS ANIMATED PERSIAN TESSELLATION ── */
+(function(){
+  const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+  let W,H,t=0;
+  function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  const cols=['#c9a227','#b52030','#1a6b3c','#d4557a','#f5d76e'];
+  function star(x,y,r,pts,ir,rot,col,a){
+    ctx.save();ctx.globalAlpha=a;ctx.strokeStyle=col;ctx.lineWidth=.55;
+    ctx.beginPath();
+    for(let i=0;i<pts*2;i++){
+      const ang=rot+(i*Math.PI/pts),rd=i%2===0?r:ir;
+      const px=x+Math.cos(ang)*rd,py=y+Math.sin(ang)*rd;
+      i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
+    }
+    ctx.closePath();ctx.stroke();ctx.restore();
+  }
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    const step=155;
+    for(let row=-1;row<Math.ceil(H/step)+1;row++){
+      for(let col=-1;col<Math.ceil(W/step)+1;col++){
+        const x=(col+.5)*step+(row%2)*(step/2),y=(row+.5)*step;
+        const ph=t*.00035+(col*.28+row*.48)*.14;
+        const ci=(Math.abs(row+col))%cols.length;
+        const sz=34+Math.sin(ph)*5;
+        star(x,y,sz,8,sz*.44,ph,cols[ci],.038+Math.sin(ph)*.012);
+        ctx.save();ctx.globalAlpha=.022+Math.abs(Math.sin(ph*.65))*.01;
+        ctx.strokeStyle=cols[(ci+2)%cols.length];ctx.lineWidth=.35;
+        ctx.beginPath();ctx.moveTo(x,y-12);ctx.lineTo(x+12,y);ctx.lineTo(x,y+12);ctx.lineTo(x-12,y);ctx.closePath();ctx.stroke();ctx.restore();
+      }
+    }
+    t++;requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* ── PARTICLES ── */
+(function(){
+  const c=document.getElementById('pts');
+  const clrs=['#c9a22755','#b5203045','#1a6b3c55','#d4557a45','#f5d76e35'];
+  for(let i=0;i<32;i++){
+    const p=document.createElement('div');p.className='pt';
+    const s=Math.random()*6+2;
+    p.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${clrs[i%clrs.length]};animation-delay:${Math.random()*12}s;animation-duration:${9+Math.random()*10}s;`;
+    c.appendChild(p);
+  }
+})();
+
+/* ── PAGE NAV ── */
+function showPage(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='dashboard')initDash();
+}
+function scrollToId(id){
+  showPage('home');
+  setTimeout(()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});},80);
+}
+
+/* ── DASHBOARD ── */
+function showDash(p,el){
+  document.querySelectorAll('.dp').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.sbln').forEach(x=>x.classList.remove('active'));
+  document.getElementById('dash-'+p).classList.add('active');
+  if(el)el.classList.add('active');
+  if(p==='ov')drawBars();
+}
+function initDash(){
+  const el=document.getElementById('ddate');
+  if(el)el.textContent=new Date().toLocaleDateString(currentLang==='fa'?'fa-IR':'en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  drawBars();
+}
+function drawBars(){
+  const data=[{l:'Oct',v:3,c:'#7040c0'},{l:'Nov',v:5,c:'#c9a227'},{l:'Dec',v:8,c:'#b52030'},{l:'Jan',v:4,c:'#1a6b3c'},{l:'Feb',v:6,c:'#4090f0'},{l:'Mar',v:9,c:'#c9a227'},{l:'Apr',v:4,c:'#d4557a'}];
+  const bc=document.getElementById('barChart');if(!bc)return;
+  const mx=Math.max(...data.map(d=>d.v));
+  bc.innerHTML='';
+  data.forEach(d=>{const pct=Math.round((d.v/mx)*100);bc.innerHTML+=`<div class="bw"><div class="bb" style="background:${d.c};height:${pct}%;box-shadow:0 0 8px ${d.c}60;"></div><div class="bl">${d.l}</div></div>`;});
+}
+document.getElementById('svbtn').addEventListener('click',function(){
+  this.textContent='✓ Saved!';this.style.background='linear-gradient(135deg,#002a10,#40c080)';this.style.color='#fff';
+  setTimeout(()=>{this.textContent=currentLang==='fa'?'ذخیره تغییرات':'Save Changes';this.style.background='';this.style.color='';},2200);
+});
+
+/* ── LANGUAGE ── */
+let currentLang='en';
+function toggleLang(){
+  currentLang=currentLang==='en'?'fa':'en';
+  const html=document.documentElement;
+  html.lang=currentLang;html.dir=currentLang==='fa'?'rtl':'ltr';
+  document.getElementById('lflag').textContent=currentLang==='fa'?'🇬🇧':'🇮🇷';
+  document.getElementById('llbl').textContent=currentLang==='fa'?'English':'فارسی';
+  document.querySelectorAll('[data-en][data-fa]').forEach(el=>{
+    const t=el.getAttribute('data-'+currentLang);if(t!==null)el.textContent=t;
+  });
+  const dl=document.getElementById('page-dashboard');
+  if(dl&&dl.classList.contains('active'))initDash();
+}
+
+/* ── VIBRATE ── */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.vib');if(!b)return;
+  b.style.animation='none';b.offsetHeight;b.style.animation='vib .33s ease';
+  setTimeout(()=>b.style.animation='',400);
+});
+</script>
 </body>
 </html>
