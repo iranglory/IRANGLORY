@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iran Glory – Premium Persian Craftsmanship</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <div class="logo">✦ IRAN GLORY</div>
+      <div class="nav-links">
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#shop" onclick="showPage('home')">Shop</a>
+        <a href="#about" onclick="showPage('home')">About</a>
+        <a href="#" onclick="showPage('dashboard')" class="nav-dash-btn">⚡ Dashboard</a>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" onclick="showPage('home'); toggleMenu()">Home</a>
+      <a href="#shop" onclick="showPage('home'); toggleMenu()">Shop</a>
+      <a href="#about" onclick="showPage('home'); toggleMenu()">About</a>
+      <a href="#" onclick="showPage('dashboard'); toggleMenu()">Dashboard</a>
+    </div>
+  </nav>
+
+  <!-- ===== HOME PAGE ===== -->
+  <div id="page-home" class="page active">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-ornament">☽ ✦ ☾</div>
+      <h1 class="hero-title">IRAN GLORY</h1>
+      <p class="hero-sub">Premium Persian Craftsmanship — Delivered Worldwide</p>
+      <a href="#shop" class="hero-cta">Explore Our Collection ↓</a>
+      <div class="hero-bg-circles">
+        <span class="circle c1"></span>
+        <span class="circle c2"></span>
+        <span class="circle c3"></span>
+      </div>
+    </section>
+
+    <!-- PRODUCT SECTION -->
+    <section class="section" id="shop">
+      <h2 class="section-title">✦ Featured Product</h2>
+      <div class="product-card">
+        <div class="product-img">
+          <span class="product-emoji">🏺</span>
+          <div class="product-glow"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-badge">LIMITED EDITION</div>
+          <h2 class="product-name">Persian Royal Vase</h2>
+          <p class="product-desc">
+            Handcrafted with centuries-old Persian artistry. Each piece is unique,
+            painted by master artisans using traditional pigments and motifs passed
+            down through generations from ancient Persia. A timeless treasure for
+            your home.
+          </p>
+          <ul class="product-features">
+            <li>✦ 100% handmade in Iran</li>
+            <li>✦ Certified authentic Persian art</li>
+            <li>✦ Ships worldwide in protective packaging</li>
+          </ul>
+          <div class="product-price">$149.00</div>
+          <!-- BUY BUTTON — replace YOUR_TELEGRAM with your actual Telegram username -->
+          <a
+            href="https://t.me/YOUR_TELEGRAM"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="buy-btn"
+          >
+            🛒 Buy Now via Telegram
+          </a>
+          <p class="buy-note">Clicking opens Telegram to complete your order securely.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+      <div class="section">
+        <h2 class="section-title">Why Iran Glory?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Handmade Artistry</h3>
+            <p>Every product is handcrafted by skilled artisans preserving ancient Persian traditions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚚</div>
+            <h3>Worldwide Shipping</h3>
+            <p>We ship globally. Your order is carefully packed and tracked from Iran to your door.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3>Premium Quality</h3>
+            <p>Only the finest materials sourced from Iran's most renowned artisan regions.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure Ordering</h3>
+            <p>All orders processed personally through Telegram for a safe, direct experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <div class="section about-inner">
+        <div class="about-text">
+          <h2 class="section-title" style="text-align:left;">About Iran Glory</h2>
+          <p>
+            Iran Glory was founded with a single mission: to bring the breathtaking
+            beauty of Persian craftsmanship to the world. For thousands of years,
+            Iranian artisans have created objects of extraordinary beauty — and we
+            are here to make that legacy accessible to everyone.
+          </p>
+          <p>
+            Every item we sell is sourced directly from verified artisans,
+            ensuring authenticity and fair compensation for their incredible work.
+          </p>
+        </div>
+        <div class="about-ornament">
+          <span class="big-ornament">🌙</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">✦ IRAN GLORY</div>
+      <p>Premium Persian Craftsmanship · Delivered Worldwide</p>
+      <p>© 2026 Iran Glory · All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="https://t.me/YOUR_TELEGRAM" target="_blank">Telegram</a>
+        <a href="https://github.com/YOUR_GITHUB" target="_blank">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===== DASHBOARD PAGE ===== -->
+  <div id="page-dashboard" class="page">
+    <div class="dash-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-logo">✦ IG</div>
+        <nav class="sidebar-nav">
+          <a href="#" class="sidebar-link active" onclick="showDash('overview')">📊 Overview</a>
+          <a href="#" class="sidebar-link" onclick="showDash('orders')">📦 Orders</a>
+          <a href="#" class="sidebar-link" onclick="showDash('customers')">👥 Customers</a>
+          <a href="#" class="sidebar-link" onclick="showDash('settings')">⚙️ Settings</a>
+        </nav>
+        <button class="sidebar-back" onclick="showPage('home')">← Back to Store</button>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="dash-main">
+
+        <!-- OVERVIEW PANEL -->
+        <div id="dash-overview" class="dash-panel active">
+          <div class="dash-header">
+            <h1 class="dash-title">Dashboard Overview</h1>
+            <span class="dash-date" id="dashDate"></span>
+          </div>
+
+          <!-- STAT CARDS -->
+          <div class="stats-grid">
+            <div class="stat-card gold">
+              <div class="stat-label">Total Revenue</div>
+              <div class="stat-value">$3,840</div>
+              <div class="stat-change up">↑ +18% this month</div>
+            </div>
+            <div class="stat-card purple">
+              <div class="stat-label">Total Orders</div>
+              <div class="stat-value">26</div>
+              <div class="stat-change up">↑ +4 this week</div>
+            </div>
+            <div class="stat-card teal">
+              <div class="stat-label">Customers</div>
+              <div class="stat-value">21</div>
+              <div class="stat-change up">↑ +3 new</div>
+            </div>
+            <div class="stat-card rose">
+              <div class="stat-label">Pending Orders</div>
+              <div class="stat-value">3</div>
+              <div class="stat-change down">↓ 2 awaiting payment</div>
+            </div>
+          </div>
+
+          <!-- CHART + ACTIVITY -->
+          <div class="dash-grid-2">
+            <div class="dash-card">
+              <div class="dash-card-title">Monthly Sales (Units)</div>
+              <div class="bar-chart" id="barChart">
+                <!-- bars injected by JS -->
+              </div>
+            </div>
+            <div class="dash-card">
+              <div class="dash-card-title">Recent Activity</div>
+              <ul class="activity-list">
+                <li><span class="dot dot-gold"></span>New order #026 from Sara M.</li>
+                <li><span class="dot dot-green"></span>Payment confirmed #025</li>
+                <li><span class="dot dot-blue"></span>Order #025 shipped via DHL</li>
+                <li><span class="dot dot-rose"></span>New message from Mike R.</li>
+                <li><span class="dot dot-gold"></span>New order #024 from Leila A.</li>
+                <li><span class="dot dot-green"></span>Payment confirmed #024</li>
+                <li><span class="dot dot-blue"></span>Order #023 shipped via FedEx</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ORDERS PANEL -->
+        <div id="dash-orders" class="dash-panel">
+          <div class="dash-header">
+            <h1 class="dash-title">Orders</h1>
+            <span class="dash-badge">26 total</span>
+          </div>
+          <div class="dash-card" style="overflow-x:auto;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Product</th>
+                  <th>Amount</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>#026</td><td>Sara M.</td><td>Persian Vase</td><td>$149</td><td>Apr 09</td><td><span class="pill paid">Paid</span></td></tr>
+                <tr><td>#025</td><td>John K.</td><td>Persian Vase</td><td>$149</td><td>Apr 07</td><td><span class="pill shipped">Shipped</span></td></tr>
+                <tr><td>#024</td><td>Leila A.</td><td>Persian Vase</td><td>$149</td><td>Apr 05</td><td><span class="pill paid">Paid</span></td></tr>
+                <tr><td>#023</td><td>Mike R.</td><td>Persian Vase</td><td>$149</td><td>Apr 03</td><td><span class="pill pending">Pending</span></td></tr>
+                <tr><td>#022</td><td>Fatemeh N.</td><td>Persian Vase</td><td>$149</td><td>Apr 01</td><td><span class="pill paid">Paid</span></td></tr>
+                <tr><td>#021</td><td>Ahmad S.</td><td>Persian Vase</td><td>$149</td><td>Mar 30</td><td><span class="pill shipped">Shipped</span></td></tr>
+                <tr><td>#020</td><td>Claire B.</td><td>Persian Vase</td><td>$149</td><td>Mar 28</td><td><span class="pill paid">Paid</span></td></tr>
+                <tr><td>#019</td><td>Reza P.</td><td>Persian Vase</td><td>$149</td><td>Mar 25</td><td><span class="pill pending">Pending</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CUSTOMERS PANEL -->
+        <div id="dash-customers" class="dash-panel">
+          <div class="dash-header">
+            <h1 class="dash-title">Customers</h1>
+            <span class="dash-badge">21 total</span>
+          </div>
+          <div class="customers-grid">
+            <div class="customer-card"><div class="avatar" style="background:#5c1a9e;">SM</div><div class="cust-name">Sara M.</div><div class="cust-info">2 orders · $298</div></div>
+            <div class="customer-card"><div class="avatar" style="background:#1a5c3e;">JK</div><div class="cust-name">John K.</div><div class="cust-info">1 order · $149</div></div>
+            <div class="customer-card"><div class="avatar" style="background:#9e1a40;">LA</div><div class="cust-name">Leila A.</div><div class="cust-info">2 orders · $298</div></div>
+            <div class="customer-card"><div class="avatar" style="background:#9e5c1a;">MR</div><div class="cust-name">Mike R.</div><div class="cust-info">1 order · $149</div></div>
+            <div class="customer-card"><div class="avatar" style="background:#1a3a9e;">FN</div><div class="cust-name">Fatemeh N.</div><div class="cust-info">3 orders · $447</div></div>
+            <div class="customer-card"><div class="avatar" style="background:#4a1a9e;">AS</div><div class="cust-name">Ahmad S.</div><div class="cust-info">1 order · $149</div></div>
+          </div>
+        </div>
+
+        <!-- SETTINGS PANEL -->
+        <div id="dash-settings" class="dash-panel">
+          <div class="dash-header">
+            <h1 class="dash-title">Settings</h1>
+          </div>
+          <div class="dash-card" style="max-width:500px;">
+            <div class="dash-card-title">Store Configuration</div>
+            <div class="settings-group">
+              <label>Store Name</label>
+              <input type="text" value="Iran Glory" class="settings-input" />
+            </div>
+            <div class="settings-group">
+              <label>Telegram Username</label>
+              <input type="text" value="@YOUR_TELEGRAM" class="settings-input" />
+            </div>
+            <div class="settings-group">
+              <label>Product Price ($)</label>
+              <input type="number" value="149" class="settings-input" />
+            </div>
+            <div class="settings-group">
+              <label>Product Name</label>
+              <input type="text" value="Persian Royal Vase" class="settings-input" />
+            </div>
+            <button class="save-btn">Save Changes</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
